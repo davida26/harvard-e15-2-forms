@@ -1,0 +1,23 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.branding{
+	font-family: 'Graduate', cursive;
+	font-size: 48px;
+}
+
+.beerDisplay, .beerSearch{
+	margin-top: 2%;
+}
+.beerDisplay h2{
+	margin: 5px 0 10px;
+}
+
+.alert{
+	margin: 10px auto 0;
+}
+
+.feature{
+	font-weight: bold;
+}
