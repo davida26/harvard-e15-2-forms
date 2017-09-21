@@ -2,8 +2,9 @@
 
 require('helpers.php');
 
-// need to move this outside the root
-$config = parse_ini_file('config.ini', true);
+// Moved API keys outside the root
+// local: config.ini
+$config = parse_ini_file('/var/config-files/config.ini', true);
 
 // Clean up the input
 $beerName = sanitize($_GET['beerName']);
