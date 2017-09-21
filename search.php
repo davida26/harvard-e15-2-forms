@@ -5,7 +5,9 @@ require('helpers.php');
 $config = parse_ini_file('config.ini', true);
 
 // Clean up the input
-$beerName = sanitize($_GET['beerName']);
+if(isset($_GET['beerName'])){
+	$beerName = sanitize($_GET['beerName']);
+}
 
 // When there is no input, show an error
 if($beerName == ''){
