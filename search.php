@@ -4,7 +4,7 @@ require('helpers.php');
 
 // Moved API keys outside the root
 // local: config.ini
-$config = parse_ini_file('/var/config-files/config.ini', true);
+$config = parse_ini_file('../../config-files/config.ini', true);
 
 // Clean up the input
 $beerName = sanitize($_GET['beerName']);
