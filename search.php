@@ -67,5 +67,3 @@ if(isset($_GET['abv'])){
 	}
 	
 }
-
-dump($baseURL);
