@@ -2,6 +2,11 @@
 
 require('helpers.php');
 
+$showError = true;
+$showDisplay = false;
+$beerName = '';
+$cleanData = '';
+
 $config = parse_ini_file('config.ini', true);
 
 // Clean up the input
