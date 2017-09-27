@@ -56,7 +56,7 @@
 	    	</div>
 	    	<?php endif ?>
 			<div class="row">
-				<div class="col-md-offset-2 col-md-8 panel panel-default beerSearch">
+				<div class="col-md-offset-3 col-md-6 panel panel-default beerSearch">
 					<div class="panel-body">
 						<form method="GET">
 						  <div class="form-group">
@@ -77,6 +77,20 @@
 						  </div>
 						  <input type="submit" class="btn btn-primary" value="Search">
 						</form>
+					</div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-4 col-md-offset-4 panel panel-default beerRecs">
+		    		<div class="panel-body">
+		    		<h2>Recommended Beers</h2>
+						<ul>
+							<li>Guinness Draught</li>
+							<li>Delirium Tremens</li>
+							<li>Heineken Lager</li>
+							<li>Stella Artois</li>
+							<li>Sculpin IPA</li>
+						</ul>
 					</div>
 		    	</div>
 		    </div>

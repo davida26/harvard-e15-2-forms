@@ -21,3 +21,11 @@ body{
 .feature{
 	font-weight: bold;
 }
+
+.beerRecs{
+	box-shadow: 1px 2px 3px #eee;
+}
+
+.beerRecs h2{
+	margin-top:0;
+}

@@ -2,10 +2,11 @@
 
 require('helpers.php');
 
-$showError = true;
+$showError = false;
 $showDisplay = false;
 $beerName = '';
 $cleanData = '';
+$option = '';
 
 $config = parse_ini_file('config.ini', true);
 
@@ -36,13 +37,16 @@ if (!$showError) {
 
 	$cleanData = json_decode($response, true);
 
-	$getName = $cleanData["data"][0]["name"];
-	$getCategory = $cleanData["data"][0]["style"]["category"]["name"];
-	$getDescription = $cleanData["data"][0]["description"];
-	$getGlass = $cleanData["data"][0]["glass"]["name"];
-	$getImage = $cleanData["data"][0]["labels"]["large"];
-	$getStatus = $cleanData["status"];
-	$getABV = $cleanData["data"][0]["style"]["abvMax"];
+	if(isset($cleanData["data"])){
+		$getName = $cleanData["data"][0]["name"];
+		$getCategory = $cleanData["data"][0]["style"]["category"]["name"];
+		$getDescription = $cleanData["data"][0]["description"];
+		$getGlass = $cleanData["data"][0]["glass"]["name"];
+		$getImage = $cleanData["data"][0]["labels"]["large"];
+		$getStatus = $cleanData["status"];
+		$getABV = $cleanData["data"][0]["style"]["abvMax"];
+	}
+	
 
 	curl_close($ch);
 }
