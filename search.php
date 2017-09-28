@@ -1,6 +1,9 @@
 <?php
 
 require('helpers.php');
+require('GetBeer.php');
+
+use BeerU\Beer;
 
 $showError = false;
 $showDisplay = false;
@@ -8,7 +11,6 @@ $beerName = '';
 $cleanData = '';
 $option = '';
 
-$config = parse_ini_file('config.ini', true);
 
 // Clean up the input
 if(isset($_GET['beerName'])){
@@ -22,19 +24,15 @@ if($beerName == ''){
 	$showDisplay = false;
 } 
 
-// if there is input check to see if the beer exists
+// if there are no errors, proceed to make API Call
 if (!$showError) {
-	// Encode the User Entered String
+	// Encode the User Entered String before sending
 	$name = urlencode($beerName);
 
-	$baseURL = 'http://api.brewerydb.com/v2/beers/?key=' . $config['api_key'] . '&name=' . $name;
+	$beer = new Beer($name);
 
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_URL, $baseURL);
-
-	$response = curl_exec($ch);
-
+	// using class to make the api call/separate the api config
+	$response = $beer->makeCall();
 	$cleanData = json_decode($response, true);
 
 	if(isset($cleanData["data"])){
@@ -47,8 +45,6 @@ if (!$showError) {
 		$getABV = $cleanData["data"][0]["style"]["abvMax"];
 	}
 	
-
-	curl_close($ch);
 }
 
 // If there are no beers matching that name, show a message
